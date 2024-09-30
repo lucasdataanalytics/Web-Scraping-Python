@@ -11,5 +11,5 @@ class MercadolivreSpider(scrapy.Spider):
         
         for product in products:
             yield{
-                'name': products.css('h2.ui-search-item__title.ui-search-item__group__element a::text').get()
+                'name': product.css('a.ui-search-link__title-card.ui-search-link::attr(title)').get()
                 }
