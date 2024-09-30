@@ -10,6 +10,16 @@ class MercadolivreSpider(scrapy.Spider):
         products = response.css('div.ui-search-result__content')
         
         for product in products:
+            
+            prices = product.css('span.andes-money-amount_fraction::text').getall()
+            cents = product.css('span.andes-money-amount_cents::text').getall()
+
             yield{
-                'name': product.css('a.ui-search-link__title-card.ui-search-link::attr(title)').get()
+                'name': product.css('a.ui-search-link__title-card.ui-search-link::attr(title)').get(),
+                'old_price_reais':prices[0] if len(prices) > 0 else None,
+                'old_price_centavos': cents[0] if len(prices) > 0 else None,
+                'new_price_reais':prices[1] if len(prices) > 1 else None,
+                'new_price_centavos': cents[1] if len(prices) > 1 else None,
+                'reviews_rating_number': product.css('span.ui-search-reviews__rating-number::text').get(),
+                'reviews_amount': product.css('span.ui-search-reviews__amount::text').get(),
                 }
