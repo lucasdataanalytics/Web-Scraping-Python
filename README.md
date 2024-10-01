@@ -46,3 +46,41 @@ Para visualizar os dados em um dashboard interativo, execute o Streamlit dentro 
 ```bash
 streamlit run dashboard/app.py
 ```
+## Configurando o Ambiente Virtual (.venv)
+
+Para isolar as dependências do projeto, criamos um ambiente virtual usando o venv. Siga os passos abaixo para configurar e ativar o ambiente:
+
+### Criar o Ambiente Virtual
+No diretório do projeto, execute o seguinte comando para criar o ambiente virtual:
+
+```bash
+python -m venv .venv
+```
+### Ativar o Ambiente Virtual
+No diretório do projeto, execute o seguinte comando para criar o ambiente virtual:
+
+```bash
+.venv\Scripts\activate
+```
+
+### Arquivo .gitignore
+
+Para evitar o versionamento de arquivos indesejados, utilizamos o seguinte modelo de .gitignore recomendado pela [Toptal]('https://www.toptal.com/developers/gitignore/api/python) para projetos Python
+
+## Comandos Scrapy
+
+### Criar um Novo Projeto Scrapy
+Para iniciar um novo projeto Scrapy, execute o comando abaixo no diretório onde deseja criar o projeto:
+
+```bash
+scrapy startproject nome_do_projeto
+```
+Este comando cria a estrutura inicial do projeto com diretórios como spiders, settings.py, entre outros.
+
+### Gerar um Spider
+Para criar um novo spider, execute o comando abaixo substituindo nome_do_spider pelo nome do spider e dominio.com pelo domínio a ser rastreado:
+
+```bash
+scrapy genspider nome_do_spider dominio.com
+```
+Este comando cria a estrutura inicial do projeto com diretórios como spiders, settings.py, entre outros.
